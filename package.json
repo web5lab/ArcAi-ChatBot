@@ -1,0 +1,48 @@
+{
+  "name": "@arcai/chatbot",
+  "version": "1.0.0",
+  "description": "A customizable chatbot widget for websites",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "chatbot",
+    "ai",
+    "widget",
+    "customer-support",
+    "react",
+    "typescript"
+  ],
+  "author": "arcai",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arcai_io/chatbot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/arcai/chatbot/issues"
+  },
+  "homepage": "https://arcai.io",
+  "scripts": {
+    "build": "tsc && npm run bundle",
+    "dev": "tsc -w",
+    "bundle": "esbuild src/index.ts --bundle --minify --outfile=dist/chatbot.min.js --global-name=arcai --format=iife",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "eventemitter3": "^5.0.1"
+  },
+  "devDependencies": {
+    "esbuild": "^0.20.1",
+    "typescript": "^5.5.3"
+  },
+  "unpkg": "dist/chatbot.min.js",
+  "jsdelivr": "dist/chatbot.min.js"
+}

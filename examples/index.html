@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arcai Chatbot Demo</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      line-height: 1.5;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    pre {
+      background: #f8fafc;
+      padding: 20px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+    .demo-controls {
+      margin: 20px 0;
+      padding: 20px;
+      background: #f8fafc;
+      border-radius: 8px;
+    }
+    .demo-controls label {
+      display: block;
+      margin-bottom: 10px;
+    }
+    .demo-controls input,
+    .demo-controls select {
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Arcai Chatbot Demo</h1>
+    
+    <h2>Quick Start</h2>
+    <p>Add the following code to your HTML:</p>
+    <pre><code>&lt;!-- Add the chatbot script --&gt;
+&lt;script src="https://cdn.jsdelivr.net/npm/@arcai/chatbot/dist/chatbot.min.js"&gt;&lt;/script&gt;
+
+&lt;script&gt;
+  // Initialize the chatbot
+  const chatbot = new Arcai.Chatbot({
+    apiKey: 'your-api-key',
+    position: 'bottom-right',
+    primaryColor: '#2563eb',
+    floatAnimation: 'float-up-down',
+    showThoughts: true,
+    customThoughts: [
+      "Need help?",
+      "Have any questions?",
+      "I'm here to assist you!"
+    ],
+    onMessage: async (message) => {
+      // Handle incoming messages
+      return "Thanks for your message!";
+    }
+  });
+&lt;/script&gt;</code></pre>
+
+    <h2>Live Demo Controls</h2>
+    <div class="demo-controls">
+      <label>
+        Position:
+        <select id="position">
+          <option value="bottom-right">Bottom Right</option>
+          <option value="bottom-left">Bottom Left</option>
+          <option value="top-right">Top Right</option>
+          <option value="top-left">Top Left</option>
+        </select>
+      </label>
+
+      <label>
+        Primary Color:
+        <input type="color" id="primaryColor" value="#2563eb">
+      </label>
+
+      <label>
+        Text Color:
+        <input type="color" id="textColor" value="#1e293b">
+      </label>
+
+      <label>
+        Float Animation:
+        <select id="floatAnimation">
+          <option value="float-up-down">Up and Down</option>
+          <option value="float-left-right">Left and Right</option>
+          <option value="float-diagonal">Diagonal</option>
+          <option value="float-circle">Circle</option>
+          <option value="none">None</option>
+        </select>
+      </label>
+
+      <label>
+        Show Thoughts:
+        <input type="checkbox" id="showThoughts" checked>
+      </label>
+
+      <label>
+        Show Avatar:
+        <input type="checkbox" id="showAvatar" checked>
+      </label>
+
+      <label>
+        Glassmorphism:
+        <input type="checkbox" id="glassmorphism">
+      </label>
+    </div>
+  </div>
+
+  <!-- Add the chatbot script -->
+  <script src="https://cdn.jsdelivr.net/npm/@Arcai/chatbot/dist/chatbot.min.js"></script>
+
+  <script>
+    // Initialize the chatbot with demo settings
+    let chatbot = new Arcai.Chatbot({
+      apiKey: 'demo-key',
+      position: 'bottom-right',
+      primaryColor: '#2563eb',
+      textColor: '#1e293b',
+      floatAnimation: 'float-up-down',
+      showThoughts: true,
+      showAvatar: true,
+      glassmorphism: false,
+      customThoughts: [
+        "Need help with the demo?",
+        "Try changing the settings above!",
+        "You can customize everything!",
+        "Click me to start chatting!",
+      ],
+      onMessage: async (message) => {
+        // Simple echo bot for demo
+        return `You said: "${message}"\n\nThis is a demo response. In a real implementation, you would handle messages with your own logic or AI service.`;
+      }
+    });
+
+    // Handle demo controls
+    const controls = {
+      position: document.getElementById('position'),
+      primaryColor: document.getElementById('primaryColor'),
+      textColor: document.getElementById('textColor'),
+      floatAnimation: document.getElementById('floatAnimation'),
+      showThoughts: document.getElementById('showThoughts'),
+      showAvatar: document.getElementById('showAvatar'),
+      glassmorphism: document.getElementById('glassmorphism'),
+    };
+
+    function updateChatbot() {
+      // Remove existing chatbot
+      chatbot.destroy();
+
+      // Create new chatbot with updated settings
+      chatbot = new Arcai.Chatbot({
+        apiKey: 'demo-key',
+        position: controls.position.value,
+        primaryColor: controls.primaryColor.value,
+        textColor: controls.textColor.value,
+        floatAnimation: controls.floatAnimation.value,
+        showThoughts: controls.showThoughts.checked,
+        showAvatar: controls.showAvatar.checked,
+        glassmorphism: controls.glassmorphism.checked,
+        customThoughts: [
+          "Need help with the demo?",
+          "Try changing the settings above!",
+          "You can customize everything!",
+          "Click me to start chatting!",
+        ],
+        onMessage: async (message) => {
+          return `You said: "${message}"\n\nThis is a demo response. In a real implementation, you would handle messages with your own logic or AI service.`;
+        }
+      });
+    }
+
+    // Add event listeners to controls
+    Object.values(controls).forEach(control => {
+      control.addEventListener('change', updateChatbot);
+    });
+  </script>
+</body>
+</html>
