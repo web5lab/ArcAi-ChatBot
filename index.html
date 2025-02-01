@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo App</title>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/@arcai/chatbot/dist/chatbot.min.js"></script>
+<script>
+  const chatbot = new arcai.Chatbot({
+    apiKey: 'your-api-key',
+    position: 'top-left',
+    primaryColor: '#2563eb',
+    floatAnimation: 'float-up-down',
+    showThoughts: true,
+    customThoughts: [
+      "Need help?",
+      "Have any questions?",
+      "I'm here to assist you!"
+    ],
+    onMessage: async (message) => {
+      return "Thanks for your message!";
+    }
+  });
+</script>
+  </body>
+</html>

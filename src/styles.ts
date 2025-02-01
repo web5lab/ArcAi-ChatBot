@@ -251,6 +251,7 @@ export const defaultStyles = `
   display: flex;
   align-items: center;
   gap: 8px;
+  width: 22px;
   font-weight: 500;
 }
 

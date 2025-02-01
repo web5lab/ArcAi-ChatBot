@@ -1,5 +1,7 @@
 export interface ChatbotConfig {
+    botIcon: string;
     apiKey: string;
+    icon: string;
     position?: 'bottom-right' | 'bottom-left' | 'top-right' | 'top-left' | 'outside-left' | 'outside-right';
     theme?: Partial<{
         mode: 'light' | 'dark';
@@ -42,6 +44,18 @@ export interface ChatbotConfig {
     onClose?: () => void;
     onAttachment?: (file: File) => Promise<string>;
     onError?: (error: Error) => void;
+}
+export interface WalletState {
+    address: string | null;
+    isConnecting: boolean;
+    isConnected: boolean;
+    error: Error | null;
+}
+export interface WalletHandlers {
+    connect: () => Promise<void>;
+    disconnect: () => Promise<void>;
+    getBalance: () => Promise<string>;
+    sendTransaction: (to: string, amount: string) => Promise<string>;
 }
 export interface Message {
     id: string;

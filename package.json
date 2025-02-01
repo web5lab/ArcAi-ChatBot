@@ -1,6 +1,6 @@
 {
   "name": "@arcai/chatbot",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A customizable chatbot widget for websites",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -37,7 +37,10 @@
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "eventemitter3": "^5.0.1"
+    "eventemitter3": "^5.0.1",
+    "viem": "^1.21.4",
+    "wagmi": "^1.4.13",
+    "@web3modal/wagmi": "^3.5.6"
   },
   "devDependencies": {
     "esbuild": "^0.20.1",
